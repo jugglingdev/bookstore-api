@@ -1,4 +1,4 @@
-class BookController < ApplicationController
+class BooksController < ApplicationController
 
     before_action :set_book, only: [:show, :update, :destroy]
 
@@ -17,7 +17,7 @@ class BookController < ApplicationController
         if book.save
             render json: book, status: :ok
         else
-            render json: book.errors, status: :unprocessable_untity
+            render json: book.errors, status: :unprocessable_entity
         end
     end
 
@@ -25,7 +25,7 @@ class BookController < ApplicationController
         if @book.update(book_params)
             render json: @book, status: :ok
         else
-            render json: @book.errors, status: :unprocessable_untity
+            render json: @book.errors, status: :unprocessable_entity
         end
     end
 
@@ -33,7 +33,7 @@ class BookController < ApplicationController
         if @book.destroy
             render json: nil, status: :ok
         else
-            render json: @book.errors, status: :unprocessable_untity
+            render json: @book.errors, status: :unprocessable_entity
         end
     end
 

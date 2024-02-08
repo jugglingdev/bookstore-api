@@ -1,4 +1,4 @@
-class AuthorController < ApplicationController
+class AuthorsController < ApplicationController
 
     before_action :set_author, only: [:show, :update, :destroy]
 
@@ -17,7 +17,7 @@ class AuthorController < ApplicationController
         if author.save
             render json: author, status: :ok
         else
-            render json: author.errors, status: :unprocessable_untity
+            render json: author.errors, status: :unprocessable_entity
         end
     end
 
@@ -25,7 +25,7 @@ class AuthorController < ApplicationController
         if @author.update(author_params)
             render json: @author, status: :ok
         else
-            render json: @author.errors, status: :unprocessable_untity
+            render json: @author.errors, status: :unprocessable_entity
         end
     end
 
@@ -33,7 +33,7 @@ class AuthorController < ApplicationController
         if @author.destroy
             render json: nil, status: :ok
         else
-            render json: @author.errors, status: :unprocessable_untity
+            render json: @author.errors, status: :unprocessable_entity
         end
     end
 
@@ -50,6 +50,6 @@ class AuthorController < ApplicationController
     end
 
     def author_params
-        params.permit(:title, :author_id)
+        params.permit(:first_name, :last_name)
     end
 end
